@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List App</title>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Todo List</h1>
+    </header>
+    
+    <div class="content">
+      <div class="sidebar">
+        <h2>Projects</h2>
+        <div id="project-list"></div>
+        
+        <form id="add-project-form">
+          <input type="text" id="project-name" placeholder="New project name">
+          <button type="submit">Add Project</button>
+        </form>
+      </div>
+      
+      <div class="main">
+        <div class="todo-filter">
+          <label>
+              <input type="checkbox" id="show-all-todos">
+              Show todos from all projects
+          </label>
+        </div>
+        <div id="todo-list"></div>
+        
+        <form id="add-todo-form">
+          <h3>Add New Todo</h3>
+          <div class="form-group">
+            <label for="todo-project">Project:</label>
+            <select id="todo-project" required></select>
+          </div>
+          <input type="text" id="todo-title" placeholder="Title" required>
+          <textarea id="todo-description" placeholder="Description"></textarea>
+          <input type="date" id="todo-date" required>
+          <select id="todo-priority">
+            <option value="low">Low Priority</option>
+            <option value="medium" selected>Medium Priority</option>
+            <option value="high">High Priority</option>
+          </select>
+          <textarea id="todo-notes" placeholder="Notes"></textarea>
+          <button type="submit">Add Todo</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,134 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.content {
+  display: flex;
+  gap: 2rem;
+}
+
+.sidebar {
+  flex: 1;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  border-radius: 5px;
+}
+
+.main {
+  flex: 3;
+}
+
+form {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+input, textarea, select, button {
+  padding: 0.5rem;
+}
+
+button {
+  cursor: pointer;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 3px;
+}
+
+.project {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  background-color: white;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.todo {
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 3px;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.todo-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.todo-title {
+  flex-grow: 1;
+}
+
+.todo-details {
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  background-color: #f9f9f9;
+  border-radius: 3px;
+}
+
+.priority-high {
+  border-left: 5px solid #ff4d4d;
+}
+
+.priority-medium {
+  border-left: 5px solid #ffb84d;
+}
+
+.priority-low {
+  border-left: 5px solid #4da6ff;
+}
+
+.completed {
+  opacity: 0.6;
+}
+
+.completed .todo-title {
+  text-decoration: line-through;
+}
+
+.todo-project-badge {
+  background-color: #4CAF50;
+  color: white;
+  padding: 2px 6px;
+  border-radius: 10px;
+  font-size: 0.8em;
+  margin-left: 5px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.todo-filter {
+  margin-bottom: 15px;
+}
