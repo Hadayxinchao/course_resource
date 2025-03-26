@@ -1,11 +1,11 @@
 {
-  "name": "@hadayxinchao/simple-dropdown-menu",
+  "name": "@hadayxinchao/simple-image-carousel",
   "version": "1.0.0",
-  "description": "A reusable dropdown menu component",
-  "main": "dist/dropdown.js",
+  "description": "A reusable image carousel component",
+  "main": "dist/image-carousel.js",
   "keywords": [
-    "dropdown",
-    "menu",
+    "image",
+    "carousel",
     "ui",
     "component"
   ],
