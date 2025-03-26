@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validate</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-container">
+        <h1>Sign Up</h1>
+        <form id="signup-form" novalidate>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" required />
+            <span class="error-message" id="email-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="country">Country:</label>
+            <select id="country" required>
+              <option value="">Select a country</option>
+              <option value="United States">United States</option>
+              <option value="Canada">Canada</option>
+              <option value="UK">United Kingdom</option>
+              <option value="Australia">Australia</option>
+              <option value="Germany">Germany</option>
+              <option value="France">France</option>
+            </select>
+            <span class="error-message" id="country-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="postal-code">Postal Code:</label>
+            <input type="text" id="postal-code" required />
+            <span class="error-message" id="postal-code-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" required />
+            <span class="error-message" id="password-error"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="password-confirm">Confirm Password:</label>
+            <input type="password" id="password-confirm" required />
+            <span class="error-message" id="password-confirm-error"></span>
+          </div>
+
+          <div class="form-group">
+            <button type="submit">Sign Up</button>
+            <span class="error-message" id="form-error"></span>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
