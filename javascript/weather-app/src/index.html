@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Weather Forecast</h1>
+        <div class="search-container">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Enter city name (e.g., New York, London, Tokyo)"
+            autofocus
+          />
+          <button id="search-button">Get Weather</button>
+        </div>
+      </header>
+
+      <div id="loading" class="loading">
+        <div class="spinner"></div>
+        <p>Fetching weather data...</p>
+      </div>
+
+      <div id="error-message" class="error-message"></div>
+
+      <div class="data-container"></div>
+      
+    </div>
+    <footer>
+      <p>Weather data powered by Visual Crossing | GIFs by GIPHY</p>
+    </footer>
+  </body>
+</html>
