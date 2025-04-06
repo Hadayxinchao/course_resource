@@ -1,0 +1,32 @@
+/* Add these styles at the end of your App.css file */
+
+.edit-btn {
+  background-color: #f39c12;
+  margin-left: 10px;
+}
+
+.edit-btn:hover {
+  background-color: #e67e22;
+}
+
+.cancel-btn {
+  background-color: #e74c3c;
+  margin-left: 10px;
+}
+
+.cancel-btn:hover {
+  background-color: #c0392b;
+}
+
+.toggle-btn {
+  background-color: #2ecc71;
+  margin-bottom: 15px;
+}
+
+.toggle-btn:hover {
+  background-color: #27ae60;
+}
+
+.experiences-list {
+  margin-bottom: 20px;
+}
