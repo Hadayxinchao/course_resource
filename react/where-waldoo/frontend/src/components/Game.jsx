@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import LevelSelection from './LevelSelection';
 import GameBoard from './GameBoard';
 import GameComplete from './GameComplete';
-import Leaderboard from './Leaderboard';
+import Leaderboard from './LeaderBoard';
 import '../styles/Game.css';
 
 function Game() {

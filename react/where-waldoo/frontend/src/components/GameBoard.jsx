@@ -120,9 +120,11 @@ function GameBoard({ levelData, onGameComplete, onExitGame }) {
       setClickPosition(null);
       return;
     }
-    
-    // If this character is already found, ignore the selection
-    if (foundCharacters.find(char => char.id === character.id)) {
+
+    // Validate the character selection with the backend
+    const isValid = await validateWithBackend(character, clickPosition);
+    if (!isValid) {
+      // If the character was not found, reset the click position
       setClickPosition(null);
       return;
     }
