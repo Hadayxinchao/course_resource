@@ -1,32 +1,35 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import '../styles/LevelSelection.css';
 
-function LevelSelection({ onLevelSelect }) {
-  const levels = [
-    {
-      id: 1,
-      name: 'Stadium',
-      image: '/waldo_snow.jpg',
-      difficulty: 'Easy',
-      description: 'Find Waldo, Wizard and Wilma in this snow scene!'
-    },
-    {
-      id: 2,
-      name: 'Beach Party',
-      image: '/waldo_stadium.jpg',
-      difficulty: 'Medium',
-      description: 'Locate our hidden characters among the crowded stadium scene!'
-    },
-    {
-      id: 3,
-      name: 'Medieval Fair',
-      image: '/waldo_maze.jpg',
-      difficulty: 'Hard',
-      description: 'Our toughest challenge! Find all characters in this busy maze!'
-    }
-  ];
-
+function LevelSelection({ onLevelSelect, onViewLeaderboard }) {
+  const [levels, setLevels] = useState([]);
   const [selectedLevel, setSelectedLevel] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchLevels = async () => {
+      try {
+        setLoading(true);
+        const response = await fetch('/api/level_images');
+        
+        if (!response.ok) {
+          throw new Error(`Failed to fetch levels: ${response.status}`);
+        }
+        
+        const data = await response.json();
+        console.log('Fetched levels:', data);
+        setLevels(data);
+        setLoading(false);
+      } catch (err) {
+        console.error('Error fetching levels:', err);
+        setError(err.message);
+        setLoading(false);
+      }
+    };
+
+    fetchLevels();
+  }, []);
 
   const handleLevelClick = (level) => {
     setSelectedLevel(level);
@@ -37,6 +40,41 @@ function LevelSelection({ onLevelSelect }) {
       onLevelSelect(selectedLevel);
     }
   };
+  
+  const handleViewLeaderboard = (e) => {
+    e.stopPropagation(); // Prevent triggering the card click
+    if (selectedLevel) {
+      onViewLeaderboard(selectedLevel);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="level-selection loading">
+        <div className="loading-spinner"></div>
+        <p>Loading levels...</p>
+      </div>
+    );
+  }
+
+  if (error) {
+    return (
+      <div className="level-selection error">
+        <h2>Error Loading Levels</h2>
+        <p>{error}</p>
+        <button onClick={() => window.location.reload()}>Try Again</button>
+      </div>
+    );
+  }
+
+  if (levels.length === 0) {
+    return (
+      <div className="level-selection empty">
+        <h2>No Levels Available</h2>
+        <p>There are currently no game levels available.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="level-selection">
@@ -50,7 +88,7 @@ function LevelSelection({ onLevelSelect }) {
             onClick={() => handleLevelClick(level)}
           >
             <div className="level-image">
-              <img src={level.image} alt={level.name} />
+              <img src={level.image_url} alt={level.name} />
             </div>
             <div className="level-info">
               <h3>{level.name}</h3>
@@ -62,6 +100,14 @@ function LevelSelection({ onLevelSelect }) {
       </div>
 
       <div className="level-controls">
+        <button 
+          className="leaderboard-button"
+          onClick={handleViewLeaderboard}
+          disabled={!selectedLevel}
+        >
+          View Leaderboard
+        </button>
+        
         <button 
           className="start-button" 
           onClick={handleStartGame}

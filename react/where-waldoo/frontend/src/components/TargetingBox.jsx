@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import '../styles/TargetingBox.css';
 
-function TargetingBox({ position, characters, onCharacterSelect, isActive }) {
+function TargetingBox({ position, characters, onCharacterSelect, isActive, isLoading }) {
   const [magnifiedImageUrl, setMagnifiedImageUrl] = useState('');
   
   useEffect(() => {
@@ -19,7 +19,7 @@ function TargetingBox({ position, characters, onCharacterSelect, isActive }) {
   
   return (
     <div 
-      className={`targeting-box ${isActive ? 'active' : ''}`}
+      className={`targeting-box ${'active'}`}
       style={{
         left: `${position.x}%`,
         top: `${position.y}%`
@@ -31,7 +31,9 @@ function TargetingBox({ position, characters, onCharacterSelect, isActive }) {
           className="magnified-image"
           style={{
             backgroundImage: `url(${magnifiedImageUrl})`,
-            backgroundPosition: `${position.x}% ${position.y}%`
+            backgroundPosition: `${position.x}% ${position.y}%`,
+            top: `${position.x}%`,
+            left: `${position.y}%`
           }}
         ></div>
         <div className="target-crosshair"></div>
@@ -41,11 +43,27 @@ function TargetingBox({ position, characters, onCharacterSelect, isActive }) {
         <div className="character-dropdown">
           <h4>Who did you find?</h4>
           <ul>
-            {characters.map(character => (
-              <li key={character.id} onClick={() => onCharacterSelect(character)}>
-                {character.name}
+            {isLoading ? (
+              <li className="loading-item">
+                <div className="dropdown-spinner"></div>
+                Checking...
               </li>
-            ))}
+            ) : (
+              <>
+                {characters.map(character => (
+                  <li 
+                    key={character.id} 
+                    onClick={() => onCharacterSelect(character)}
+                    className="character-option"
+                  >
+                    {character.name}
+                  </li>
+                ))}
+                <li className="cancel-option" onClick={() => onCharacterSelect(null)}>
+                  Cancel
+                </li>
+              </>
+            )}
           </ul>
         </div>
       )}

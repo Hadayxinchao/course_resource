@@ -1,0 +1,2 @@
+module Api::CharacterSelectionsHelper
+end

@@ -1,0 +1,63 @@
+.theme-switcher {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 2px solid currentColor;
+  font-size: 20px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.theme-switcher:hover {
+  transform: scale(1.1);
+}
+
+/* Dark theme styles */
+body.dark-theme {
+  background-color: #1a1a1a;
+  color: #f0f0f0;
+}
+
+body.dark-theme .game-title {
+  color: #f0f0f0;
+}
+
+body.dark-theme .level-card {
+  background-color: #2a2a2a;
+  border-color: #3a3a3a;
+}
+
+body.dark-theme .level-info h3,
+body.dark-theme .level-info p {
+  color: #f0f0f0;
+}
+
+body.dark-theme .leaderboard,
+body.dark-theme .game-complete-modal {
+  background-color: #2a2a2a;
+  color: #f0f0f0;
+}
+
+body.dark-theme .leaderboard th {
+  background: linear-gradient(135deg, #2c3e50, #1a1a1a);
+}
+
+body.dark-theme .leaderboard td {
+  border-color: #3a3a3a;
+}
+
+body.dark-theme .your-score {
+  background-color: #3a3a3a;
+}
+
+body.dark-theme .your-result {
+  background-color: rgba(52, 152, 219, 0.2);
+}
